@@ -14,7 +14,7 @@ J = 0;
 %               You should set J to the cost.
 
 for i = 1:m
-  J = J + (0.5/m)*(theta(1,1)+theta(2,1)*X(i,2)-y(i,1))^2;
+  J = J + (0.5/m)*(theta(1,1)*X(i,1)+theta(2,1)*X(i,2)-y(i,1))^2;
 end
 
 
