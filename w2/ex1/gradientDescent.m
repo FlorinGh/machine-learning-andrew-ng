@@ -16,19 +16,19 @@ for iter = 1:num_iters
     % Hint: While debugging, it can be useful to print out the values
     %       of the cost function (computeCost) and gradient here.
     %
-    hx0 = 0;
+    grad0 = 0;
     for i = 1:m
-      hx0 += (theta(1,1)+theta(2,1)*X(i,2) - y(i,1)) * X(i,1);
+      grad0 += (theta(1,1)+theta(2,1)*X(i,2) - y(i,1)) * X(i,1);
     end
     
-    hx1 = 0;
+    grad1 = 0;
     for i = 1:m
-      hx1 += (theta(1,1)+theta(2,1)*X(i,2) - y(i,1)) * X(i,2);
+      grad1 += (theta(1,1)+theta(2,1)*X(i,2) - y(i,1)) * X(i,2);
     end
     
-    theta(1,1) -= (alpha/m) * hx0;
+    theta(1,1) -= (alpha/m) * grad0;
     
-    theta(2,1) -= (alpha/m) * hx1;
+    theta(2,1) -= (alpha/m) * grad1;
 
     % ============================================================
 
