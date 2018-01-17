@@ -6,7 +6,7 @@
 %  This file contains code that helps you get started on the second part
 %  of the exercise which covers regularization with logistic regression.
 %
-%  You will need to complete the following functions in this exericse:
+%  You will need to complete the following functions in this exercise:
 %
 %     sigmoid.m
 %     costFunction.m
@@ -25,7 +25,7 @@ clear ; close all; clc
 %  contains the label (y).
 
 data = load('ex2data2.txt');
-X = data(:, [1, 2]); y = data(:, 3);
+X = data(:, [1, 2]); y = data(:, 3); % all rows, columns 1 and 2, column 3
 
 plotData(X, y);
 
@@ -106,8 +106,8 @@ pause;
 % Initialize fitting parameters
 initial_theta = zeros(size(X, 2), 1);
 
-% Set regularization parameter lambda to 1 (you should vary this)
-lambda = 1;
+% Set regularization parameter lambda to 1 (you should vary this in optional exercises)
+lambda = 0.001;
 
 % Set Options
 options = optimset('GradObj', 'on', 'MaxIter', 400);
