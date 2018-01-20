@@ -26,13 +26,11 @@ sigma = zeros(1, size(X, 2)); % one row, columns = X no of columns
 % Hint: You might find the 'mean' and 'std' functions useful.
 %    
 
-n = size(X,2); % number of features
 mu = mean(X);
+
 sigma = std(X);
 
-X_norm = X_norm - mu;
-
-X_norm = X_norm ./ sigma;
+X_norm = (X_norm - mu)./ sigma;
 
 
 % ============================================================
