@@ -34,7 +34,7 @@ X = [ones(m, 1) X];
 %       fmincg works similarly to fminunc, but is more efficient when we
 %       are dealing with large number of parameters.
 %
-options = optimset('GradObj', 'on', 'MaxIter', 50);
+options = optimset('GradObj', 'on', 'MaxIter', 500);
 initial_theta = zeros(n+1, 1);
 for c = 1:num_labels
 	%  This function will return theta and the cost 
@@ -43,5 +43,6 @@ for c = 1:num_labels
 end
 
 % =========================================================================
+
 
 end
