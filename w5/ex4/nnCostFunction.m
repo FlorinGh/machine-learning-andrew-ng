@@ -44,7 +44,7 @@ end
 % Instructions: You should complete the code by working through the
 %               following parts.
 %
-% Part 1: Feedforward the neural network and return the cost in the
+% Part 1: Feed forward the neural network and return the cost in the
 %         variable J. After implementing Part 1, you can verify that your
 %         cost function computation is correct by verifying the cost
 %         computed in ex4.m
@@ -64,7 +64,7 @@ end
 % adding regularization
 J += (0.5*lambda/m) * (sum(sum(Theta1(:,2:end).^2)) + sum(sum(Theta2(:,2:end).^2)));
 
-% Part 2: Implement the backpropagation algorithm to compute the gradients
+% Part 2: Implement the back propagation algorithm to compute the gradients
 %         Theta1_grad and Theta2_grad. You should return the partial derivatives of
 %         the cost function with respect to Theta1 and Theta2 in Theta1_grad and
 %         Theta2_grad, respectively. After implementing Part 2, you can check
@@ -75,7 +75,7 @@ J += (0.5*lambda/m) * (sum(sum(Theta1(:,2:end).^2)) + sum(sum(Theta2(:,2:end).^2
 %               binary vector of 1's and 0's to be used with the neural network
 %               cost function.
 %
-%         Hint: We recommend implementing backpropagation using a for-loop
+%         Hint: We recommend implementing back propagation using a for-loop
 %               over the training examples if you are implementing it for the 
 %               first time.
 %
@@ -109,20 +109,14 @@ end
 % Part 3: Implement regularization with the cost function and gradients.
 %
 %         Hint: You can implement this around the code for
-%               backpropagation. That is, you can compute the gradients for
+%               back propagation. That is, you can compute the gradients for
 %               the regularization separately and then add them to Theta1_grad
 %               and Theta2_grad from Part 2.
 %
 
+Theta1_grad += (lambda/m) * [zeros(size(Theta1, 1), 1) Theta1(:,2:end)]; 
 
-
-
-
-
-
-
-
-
+Theta2_grad += (lambda/m) * [zeros(size(Theta2, 1), 1) Theta2(:,2:end)];
 
 % -------------------------------------------------------------
 
