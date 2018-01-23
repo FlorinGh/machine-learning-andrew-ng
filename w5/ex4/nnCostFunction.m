@@ -79,25 +79,32 @@ J += (0.5*lambda/m) * (sum(sum(Theta1(:,2:end).^2)) + sum(sum(Theta2(:,2:end).^2
 %               over the training examples if you are implementing it for the 
 %               first time.
 %
+% initializing the gradient accumulator
+D1 = 0;
+D2 = 0;
 for t = 1:m
+	% Step 1
+	a1 = X(t,:)';
+	z2 = Theta1 * a1;
+	a2 = sigmoid(z2);
+	a2 = [1; a2];
+	z3 = Theta2 * a2;
+	a3 = sigmoid(z3);	
 	
+	% Step 2
+	d3 = a3 - yvec(t,:)';
 	
+	% Step 3
+	gp2 = a2.*(1-a2);
+	d2 = Theta2'*d3.*gp2;
 	
-	
-	
-	
-	
-	Dij = DAC/m;
-
-
-
-
-
-
-
-
-
-
+	% Step 4
+	D1 += d2(2:end)*a1';
+	D2 += d3*a2';
+end
+	% Step 5
+	Theta1_grad = D1 / m;
+	Theta2_grad = D2 / m;
 
 % Part 3: Implement regularization with the cost function and gradients.
 %
