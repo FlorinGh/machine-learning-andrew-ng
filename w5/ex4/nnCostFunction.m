@@ -79,7 +79,15 @@ J += (0.5*lambda/m) * (sum(sum(Theta1(:,2:end).^2)) + sum(sum(Theta2(:,2:end).^2
 %               over the training examples if you are implementing it for the 
 %               first time.
 %
-
+for t = 1:m
+	
+	
+	
+	
+	
+	
+	
+	Dij = DAC/m;
 
 
 
