@@ -49,15 +49,13 @@ error_val   = zeros(m, 1);
 %           ....
 %           
 %       end
-%
-
 % ---------------------- Sample Solution ----------------------
 
-
-
-
-
-
+for i=1:m
+	errorT = 0; % training error accumulator
+	error_train(i) = errorT + (0.5/m) * sum((X(1:i,:)*theta - y(1:i)).^2);
+end
+error_val += (0.5/m) * sum((Xval*theta - yval).^2);
 
 % -------------------------------------------------------------
 
