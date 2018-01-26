@@ -40,23 +40,17 @@ error_val   = zeros(m, 1);
 %       Do note that you will still need to use lambda when running
 %       the training to obtain the theta parameters.
 %
-% Hint: You can loop over the examples with the following:
-%
-%       for i = 1:m
-%           % Compute train/cross validation errors using training examples 
-%           % X(1:i, :) and y(1:i), storing the result in 
-%           % error_train(i) and error_val(i)
-%           ....
-%           
-%       end
-% ---------------------- Sample Solution ----------------------
+% Computing the training and cross-validation errors:
+X = [ones(m, 1) X];
+Xval = [ones(size(Xval, 1), 1) Xval];
 
 for i=1:m
-	errorT = 0; % training error accumulator
-	error_train(i) = errorT + (0.5/m) * sum((X(1:i,:)*theta - y(1:i)).^2);
+	theta = trainLinearReg(X(1:i,:), y(1:i,:), lambda);
+	error_train(i) = linearRegCostFunction(X(1:i,:), y(1:i,:), theta, 0);
+	error_val(i) = linearRegCostFunction(Xval, yval, theta, 0);
 end
-error_val += (0.5/m) * sum((Xval*theta - yval).^2);
 
+%
 % -------------------------------------------------------------
 
 % =========================================================================
