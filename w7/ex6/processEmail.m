@@ -1,5 +1,5 @@
 function word_indices = processEmail(email_contents)
-%PROCESSEMAIL preprocesses a the body of an email and
+%PROCESSEMAIL preprocesses the body of an email and
 %returns a list of word_indices 
 %   word_indices = PROCESSEMAIL(email_contents) preprocesses 
 %   the body of an email and returns a list of indices of the 
@@ -97,14 +97,12 @@ while ~isempty(email_contents)
     %       str2). It will return 1 only if the two strings are equivalent.
     %
 
-
-
-
-
-
-
-
-
+	for idx = 1:1899
+		if strcmp(str, vocabList{idx})
+			word_indices = [word_indices; idx];
+		else continue
+		end
+	end
 
     % =============================================================
 
