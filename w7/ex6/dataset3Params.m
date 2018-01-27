@@ -22,12 +22,24 @@ sigma = 0.3;
 %  Note: You can compute the prediction error using 
 %        mean(double(predictions ~= yval))
 %
-
-
-
-
-
-
+cvec = [0.01  0.03  0.1  0.3  1 3 10 30]';
+svec = [0.01  0.03  0.1  0.3  1 3 10 30]';
+error = ones(8,8);
+for i = 1:8
+	C = cvec(i);
+	for j = 1:8
+		sigma = svec(j);
+		model= svmTrain(X, y, C, @(x1, x2) gaussianKernel(x1, x2, sigma)); 
+		predictions = svmPredict(model, Xval);
+		error(i,j) = mean(double(predictions ~= yval));
+	end
+end
+% compute the location of max
+[i, j] = min(error);
+[a,b] = min(i);
+% get C and sigma based in that location
+C = cvec(j(b));
+sigma = svec(b);
 
 % =========================================================================
 
