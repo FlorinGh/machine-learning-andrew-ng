@@ -25,8 +25,6 @@ dist = ones(K,m);
 for k = 1:K
 	for i = 1:m
 		dist(k,i) = norm(X(i,:)-centroids(k,:))^2;		
-		%D = bsxfun(@minus, X(i), centroids(k));
-		%dist(k,i) = sum(D.^2,2);
 	end
 end
 [val, j] = min(dist);
