@@ -4,7 +4,7 @@ function [U, S] = pca(X)
 %   Returns the eigenvectors U, the eigenvalues (on diagonal) in S
 %
 
-% Useful values
+% Useful value
 [m, n] = size(X);
 
 % You need to return the following variables correctly.
@@ -19,12 +19,8 @@ S = zeros(n);
 % Note: When computing the covariance matrix, remember to divide by m (the
 %       number of examples).
 %
-
-
-
-
-
-
+Sigma = (1/m) * X' * X; % covariance matrix
+[U, S, X] = svd(Sigma); % singular value decomposition solver
 
 % =========================================================================
 
