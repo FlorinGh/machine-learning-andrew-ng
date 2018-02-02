@@ -42,6 +42,9 @@ Theta_grad = zeros(size(Theta));
 
 J = 0.5 * sum(sum(R.*(X*Theta'-Y).^2));
 
+X_grad = ((X * Theta' - Y).*R) * Theta; % size Nm x 100
+
+Theta_grad = ((X * Theta' - Y).*R)' * X; % size Nu x 100
 
 % =============================================================
 
